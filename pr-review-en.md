@@ -1,15 +1,19 @@
 # Task
 
-Conduct a code review for the specified Pull Request and create **PENDING** status review comments using the **GitHub API**. <owner>: $1 <repo>: $2 <PR number>: $3
+Conduct a code review for the specified Pull Request and create **PENDING** status review comments using the **GitHub API**.
+
+- \<owner\>: $1
+- \<repo\>: $2
+- \<PR number\>: $3
 
 For each review comment, make sure to include one of the following labels **at the beginning** of the comment, followed by a newline:
 
-* **[change request]**: Use this label when a change is *mandatory*.
-* **[suggestion]**: Use this label when a change is *not required* but you want to *propose an improvement*.
-* **[imo]**: Use this label when you want to express an *opinion*.
-* **[imho]**: Use this label when you want to express an *opinion modestly*.
-* **[nits]**: Use this label when the change is *not required* because it doesn't affect functionality, but you want to *suggest a minor improvement*.
-* **[question]**: Use this label when you want to *ask a question* about the implementation’s intent or whether certain considerations were made.
+- **[change request]**: Use this label when a change is _mandatory_.
+- **[suggestion]**: Use this label when a change is _not required_ but you want to _propose an improvement_.
+- **[imo]**: Use this label when you want to express an _opinion_.
+- **[imho]**: Use this label when you want to express an _opinion modestly_.
+- **[nits]**: Use this label when the change is _not required_ because it doesn't affect functionality, but you want to _suggest a minor improvement_.
+- **[question]**: Use this label when you want to _ask a question_ about the implementation’s intent or whether certain considerations were made.
 
 ---
 
@@ -31,11 +35,11 @@ Use the **GitHub REST API** to create a **PENDING** review.
 
 **Important specifications:**
 
-* **event**: Omit this field to keep the review in **PENDING** status.
-* **line**: Specify the *actual line number* within the file.
-* **side**: Specify `"RIGHT"` (new code) or `"LEFT"` (old code).
-* **path**: Specify the *relative path* of the target file.
-* **position** parameter: **Do not use** (deprecated).
+- **event**: Omit this field to keep the review in **PENDING** status.
+- **line**: Specify the _actual line number_ within the file.
+- **side**: Specify `"RIGHT"` (new code) or `"LEFT"` (old code).
+- **path**: Specify the _relative path_ of the target file.
+- **position** parameter: **Do not use** (deprecated).
 
 **API Format:**
 
@@ -89,4 +93,3 @@ gh api repos/<owner>/<repo>/pulls/<PR number>/reviews/<review ID>/comments --jq 
 ```bash
 gh api -X DELETE repos/<owner>/<repo>/pulls/<PR number>/reviews/<review ID>
 ```
-
